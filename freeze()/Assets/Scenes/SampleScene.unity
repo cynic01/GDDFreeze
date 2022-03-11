@@ -502,23 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 705447408972706303, guid: 7a3d5caff5b3647aaa6939ffb9782570, type: 3}
       propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1033348438357874237, guid: 7a3d5caff5b3647aaa6939ffb9782570, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2876679826697423831, guid: 7a3d5caff5b3647aaa6939ffb9782570, type: 3}
-      propertyPath: maxSpeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 2876679826697423831, guid: 7a3d5caff5b3647aaa6939ffb9782570, type: 3}
-      propertyPath: jumpForce
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2876679826697423831, guid: 7a3d5caff5b3647aaa6939ffb9782570, type: 3}
-      propertyPath: moveSpeed
-      value: 750
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3d5caff5b3647aaa6939ffb9782570, type: 3}
