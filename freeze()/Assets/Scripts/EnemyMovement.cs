@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void OnTriggerStay(Collider collision)
     {
-		if (!moving) {
+		if (!moving && collision.gameObject.tag == "Player") {
 			moving = true;
 			StartCoroutine(Investigate(collision.gameObject.GetComponent<Transform>().position));
 		}
