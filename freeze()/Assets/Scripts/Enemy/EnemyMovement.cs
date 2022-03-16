@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour {
     public bool on;
 
 	[SerializeField]
-    [Tooltip("Is this enemy tracking the player.")]
+    [Tooltip("Speed of the enemy.")]
     float movespeed;
 
 	// Use this for initialization
