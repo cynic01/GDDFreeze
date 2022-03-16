@@ -23,7 +23,8 @@ public class EnemyMovement : MonoBehaviour {
     void OnTriggerStay(Collider collision)
     {
 		if (on && collision.gameObject.tag == "Player") {
-			transform.position += transform.forward * movespeed * Time.deltaTime;
+			transform.position += (collision.gameObject.transform.position - transform.position) 
+											* movespeed * Time.deltaTime;
 		}
     }
 }
