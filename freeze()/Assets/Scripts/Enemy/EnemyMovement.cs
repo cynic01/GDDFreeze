@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour {
     public bool on;
 
 	[SerializeField]
-    [Tooltip("Is this enemy tracking the player.")]
+    [Tooltip("Speed of the enemy.")]
     float movespeed;
 
 	// Use this for initialization
@@ -23,7 +23,8 @@ public class EnemyMovement : MonoBehaviour {
     void OnTriggerStay(Collider collision)
     {
 		if (on && collision.gameObject.tag == "Player") {
-			transform.position += transform.forward * movespeed * Time.deltaTime;
+			var direction = (collision.gameObject.transform.position - transform.position).normalized;
+			transform.position += direction * movespeed * Time.deltaTime;
 		}
     }
 }
