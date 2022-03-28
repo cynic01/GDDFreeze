@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour {
+public class BasicEnemy : MonoBehaviour {
+	#region hackable_variables
 	[SerializeField]
     [Tooltip("Is this enemy tracking the player.")]
     public bool on;
+	#endregion
 
+	#region movement_variables
 	[SerializeField]
     [Tooltip("Speed of the enemy.")]
     float movespeed;
+	#endregion
 
 	// Use this for initialization
 	void Start () {
