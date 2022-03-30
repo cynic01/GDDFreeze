@@ -18,10 +18,16 @@ public class Player : MonoBehaviour
     private float epsilon = 0.01f;
     #endregion
 
+    #region health_variables
+    public float maxHealth;
+    float curHealth;
+    #endregion
+
     // Start is called before the first frame update
     void Awake()
     {
         playerRB = gameObject.GetComponent<Rigidbody>();
+        curHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -69,6 +75,22 @@ public class Player : MonoBehaviour
         // Calculate a rotation a step closer to the target and applies rotation to this object
         transform.rotation = Quaternion.LookRotation(newDirection);
     }
+    
+    #region health_functions
+    public void TakeDamage(float val)
+    {
+        curHealth -= val;
+        if (curHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
+    #endregion
 }
 
 

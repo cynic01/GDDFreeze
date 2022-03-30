@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemy : MonoBehaviour {
+//if this catastrophically fails, change the line below to
+//BasicEnemy : MonoBehavior instead of : Enemy
+public class BasicEnemy : Enemy {
 	#region hackable_variables
 	[SerializeField]
     [Tooltip("Is this enemy tracking the player.")]
