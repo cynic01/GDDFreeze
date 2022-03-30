@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 2876679826697423831, guid: 7a3d5caff5b3647aaa6939ffb9782570, type: 3}
+      propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3d5caff5b3647aaa6939ffb9782570, type: 3}
 --- !u!1001 &7591381208730765489

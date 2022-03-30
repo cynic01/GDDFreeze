@@ -8,6 +8,7 @@ public class Turret : MonoBehaviour
     public GameObject projectile;
     public float timeToReload;
     public float fireSpeed;
+    public string targetTag;
 
     float reloadTimer = 0;
 
@@ -16,6 +17,8 @@ public class Turret : MonoBehaviour
     private void Awake()
     {
         playerList = new List<GameObject>();
+        targetTag = "Player";
+        reloadTimer = timeToReload;
     }
 
     // Update is called once per frame
@@ -59,7 +62,7 @@ public class Turret : MonoBehaviour
 
     bool isPlayer(GameObject obj)
     {
-        return obj.CompareTag("Player");
+        return obj.CompareTag(targetTag);
     }
 }
 
