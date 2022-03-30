@@ -14,11 +14,8 @@ public class Player : MonoBehaviour
     public bool onGround;
     float MoveHor;
     Rigidbody playerRB;
-    #endregion
-
-    #region angles
-    private final quaternion right = new quaternion();
-    private final quaternion left = new quaternion();
+    private float rotation_speed = 5.0f;
+    private float epsilon = 0.01f;
     #endregion
 
     // Start is called before the first frame update
@@ -31,8 +28,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         MoveHor = Input.GetAxisRaw("Horizontal");
-        movePlayer();
-
+        if (Mathf.Abs(MoveHor - transform.forward.x) < epsilon) {
+            movePlayer();
+        } else {
+            rotatePlayer();
+        }
     }
 
     void movePlayer()
@@ -54,6 +54,20 @@ public class Player : MonoBehaviour
             playerRB.velocity = new Vector2(playerRB.velocity.x, 0);
             playerRB.AddForce(new Vector2(0, jumpForce));
         }
+    }
+
+    void rotatePlayer() {
+        // Determine which direction to rotate towards
+        Vector3 targetDirection = new Vector3(MoveHor, 0, 0);
+
+        // The step size is equal to speed times frame time.
+        float singleStep = rotation_speed * Time.deltaTime;
+
+        // Rotate the forward vector towards the target direction by one step
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+
+        // Calculate a rotation a step closer to the target and applies rotation to this object
+        transform.rotation = Quaternion.LookRotation(newDirection);
     }
 }
 

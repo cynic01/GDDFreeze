@@ -19,7 +19,7 @@ public class StationaryShooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        angle = Quaternion.Euler(0, -1, 0);;
+        transform.rotation = Quaternion.Euler(0, -1, 0);
     }
 
     // Update is called once per frame
