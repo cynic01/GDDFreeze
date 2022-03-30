@@ -16,10 +16,16 @@ public class Player : MonoBehaviour
     Rigidbody playerRB;
     #endregion
 
+    #region health_variables
+    public float maxHealth;
+    float curHealth;
+    #endregion
+
     // Start is called before the first frame update
     void Awake()
     {
         playerRB = gameObject.GetComponent<Rigidbody>();
+        curHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -50,6 +56,22 @@ public class Player : MonoBehaviour
             playerRB.AddForce(new Vector2(0, jumpForce));
         }
     }
+
+    #region health_functions
+    public void TakeDamage(float val)
+    {
+        curHealth -= val;
+        if (curHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
+    #endregion
 }
 
 
