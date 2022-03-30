@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     Rigidbody playerRB;
     #endregion
 
+    #region angles
+    private final quaternion right = new quaternion();
+    private final quaternion left = new quaternion();
+    #endregion
+
     // Start is called before the first frame update
     void Awake()
     {
