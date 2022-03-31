@@ -14,20 +14,31 @@ public class Player : MonoBehaviour
     public bool onGround;
     float MoveHor;
     Rigidbody playerRB;
+    private float rotation_speed = 5.0f;
+    private float epsilon = 0.01f;
+    #endregion
+
+    #region health_variables
+    public float maxHealth;
+    float curHealth;
     #endregion
 
     // Start is called before the first frame update
     void Awake()
     {
         playerRB = gameObject.GetComponent<Rigidbody>();
+        curHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
         MoveHor = Input.GetAxisRaw("Horizontal");
-        movePlayer();
-
+        if (Mathf.Abs(MoveHor - transform.forward.x) < epsilon) {
+            movePlayer();
+        } else {
+            rotatePlayer();
+        }
     }
 
     void movePlayer()
@@ -50,6 +61,36 @@ public class Player : MonoBehaviour
             playerRB.AddForce(new Vector2(0, jumpForce));
         }
     }
+
+    void rotatePlayer() {
+        // Determine which direction to rotate towards
+        Vector3 targetDirection = new Vector3(MoveHor, 0, 0);
+
+        // The step size is equal to speed times frame time.
+        float singleStep = rotation_speed * Time.deltaTime;
+
+        // Rotate the forward vector towards the target direction by one step
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+
+        // Calculate a rotation a step closer to the target and applies rotation to this object
+        transform.rotation = Quaternion.LookRotation(newDirection);
+    }
+    
+    #region health_functions
+    public void TakeDamage(float val)
+    {
+        curHealth -= val;
+        if (curHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
+    #endregion
 }
 
 
