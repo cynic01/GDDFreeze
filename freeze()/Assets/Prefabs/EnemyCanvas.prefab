@@ -407,6 +407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Code Block (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3584959099799762169, guid: 4862cd5b28816a3478dabb7737cdfe09, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3584959100185045408, guid: 4862cd5b28816a3478dabb7737cdfe09, type: 3}
       propertyPath: m_text
       value: Chase
@@ -512,6 +516,10 @@ PrefabInstance:
     - target: {fileID: 3584959099757908685, guid: 4862cd5b28816a3478dabb7737cdfe09, type: 3}
       propertyPath: m_Name
       value: Code Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584959099799762169, guid: 4862cd5b28816a3478dabb7737cdfe09, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4862cd5b28816a3478dabb7737cdfe09, type: 3}
