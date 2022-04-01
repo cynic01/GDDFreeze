@@ -16,11 +16,12 @@ public class DropdownMenuScript : MonoBehaviour, ISelectHandler
     {
         dropdown = gameObject.GetComponent<TMP_Dropdown>();
         title = transform.parent.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        Debug.Log(title.text);
         enemyScript = transform.parent.parent.parent.parent.gameObject.GetComponent<Enemy>();
     }
 
     public void OnSelect(BaseEventData eventData) {
-        // Debug.Log(dropdown.captionText.text);
+        Debug.Log(title.text);
         switch(title.text) {
             case "If Detect":
                 enemyScript.ChangeDetectionTag(dropdown.captionText.text);

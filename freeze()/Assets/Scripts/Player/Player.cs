@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region health_variables
-    public float maxHealth;
+    public float maxHealth = 100f;
     float curHealth;
     #endregion
 
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
     #endregion
 }

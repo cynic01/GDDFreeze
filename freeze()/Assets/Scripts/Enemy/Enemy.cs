@@ -13,7 +13,7 @@ public abstract class Enemy : MonoBehaviour
     #region hackable_variables
     [SerializeField]
 	[Tooltip("Whether this enemy tracking anything.")]
-	public bool on;
+	public bool on = true;
 
     [SerializeField]
     [Tooltip("This enemy will move when detecting this tag.")]
@@ -30,11 +30,11 @@ public abstract class Enemy : MonoBehaviour
 
     #region hacking_functions
     public virtual void ChangeDetectionTag(string newTag) {
-        this.detectTag = newTag;
+        detectTag = newTag;
     }
 
     public virtual void ChangeChaseTag(string newTag) {
-        this.chaseTag = newTag;
+        chaseTag = newTag;
     }
     #endregion
 
@@ -50,7 +50,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Die()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
     #endregion
 

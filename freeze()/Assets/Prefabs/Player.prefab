@@ -131,6 +131,7 @@ MonoBehaviour:
   maxSpeed: 500
   jumpForce: 200
   onGround: 0
+  maxHealth: 0
 --- !u!1 &1033348438357874237
 GameObject:
   m_ObjectHideFlags: 0
