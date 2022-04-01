@@ -6,7 +6,7 @@ using UnityEngine;
 public class ShowOnClick : MonoBehaviour
 {
     private Canvas enemyUI;
-    private Vector3 offset = new Vector3(-5, 0, 0);
+    private Vector3 offset = new Vector3(-2, 0, 0);
     private CameraController camScript;
     
     // Start is called before the first frame update
@@ -20,6 +20,7 @@ public class ShowOnClick : MonoBehaviour
         if (!enemyUI.enabled) {
             StartCoroutine(camScript.ShiftCamera(offset));
             enemyUI.enabled = true;
+            // Time.timeScale = 0.1f;
         }
     }
 }
