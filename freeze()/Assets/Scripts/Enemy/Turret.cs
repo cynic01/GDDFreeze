@@ -21,11 +21,6 @@ public class Turret : MonoBehaviour
     public GameObject obj;
     #endregion
 
-    #region angle_variables
-    double epsilon = 1.0e-5;
-    float rotation_speed = 5.0f;
-    #endregion
-
     private void Awake()
     {
         playerList = new List<GameObject>();
@@ -37,13 +32,10 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Quaternion obj_pos = obj.transform.rotation;
-        if (Quaternion.Dot(obj_pos, transform.rotation) < epsilon) {
-            var step = rotation_speed * Time.deltaTime;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, obj_pos,  step);
-        }
-        if (reloadTimer > timeToReload 
-            && Vector3.Distance(obj.transform.position, transform.position) < radius)
+        Vector3 obj_position = obj.transform.position;
+        obj_position.z = transform.position.z;
+        transform.LookAt(obj_position);
+        if (reloadTimer > timeToReload && inRadius())
         {
             reloadTimer = 0;
             float x = obj.transform.position.x - transform.position.x;
@@ -58,6 +50,10 @@ public class Turret : MonoBehaviour
         {
             reloadTimer += Time.deltaTime;
         }
+    }
+
+    bool inRadius() {
+        return Vector3.Distance(obj.transform.position, transform.position) < radius;
     }
 }
 
