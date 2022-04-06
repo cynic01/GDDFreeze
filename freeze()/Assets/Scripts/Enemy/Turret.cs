@@ -8,12 +8,9 @@ public class Turret : MonoBehaviour
     public GameObject projectile;
     public float timeToReload;
     public float fireSpeed;
-    public string targetTag;
     public float radius;
 
     float reloadTimer = 0;
-
-    List<GameObject> playerList;
 
     #region hackable_variables
     [SerializeField]
@@ -23,8 +20,6 @@ public class Turret : MonoBehaviour
 
     private void Awake()
     {
-        playerList = new List<GameObject>();
-        targetTag = "Player";
         reloadTimer = timeToReload;
         obj = GameObject.Find("Player");
     }
