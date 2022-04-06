@@ -9,60 +9,55 @@ public class Turret : MonoBehaviour
     public float timeToReload;
     public float fireSpeed;
     public string targetTag;
+    public float radius;
 
     float reloadTimer = 0;
 
     List<GameObject> playerList;
+
+    #region hackable_variables
+    [SerializeField]
+    [Tooltip("The angle at which this enemy shoots.")]
+    public GameObject obj;
+    #endregion
+
+    #region angle_variables
+    double epsilon = 1.0e-5;
+    float rotation_speed = 5.0f;
+    #endregion
 
     private void Awake()
     {
         playerList = new List<GameObject>();
         targetTag = "Player";
         reloadTimer = timeToReload;
+        obj = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (reloadTimer > timeToReload)
+        Quaternion obj_pos = obj.transform.rotation;
+        if (Quaternion.Dot(obj_pos, transform.rotation) < epsilon) {
+            var step = rotation_speed * Time.deltaTime;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, obj_pos,  step);
+        }
+        if (reloadTimer > timeToReload 
+            && Vector3.Distance(obj.transform.position, transform.position) < radius)
         {
-            if (playerList.Count > 0)
-            {
-                reloadTimer = 0;
-                foreach (GameObject obj in playerList)
-                {
-                    float x = obj.transform.position.x - transform.position.x;
-                    float y = obj.transform.position.y - transform.position.y;
-                    Vector2 FireDirection = new Vector2(x, y);
-                    FireDirection = FireDirection.normalized * fireSpeed;
+            reloadTimer = 0;
+            float x = obj.transform.position.x - transform.position.x;
+            float y = obj.transform.position.y - transform.position.y;
+            Vector2 FireDirection = new Vector2(x, y);
+            FireDirection = FireDirection.normalized * fireSpeed;
 
-                    GameObject newProjectile = (GameObject)Instantiate(projectile, transform.position, transform.rotation);
-                    newProjectile.GetComponent<Rigidbody>().velocity = FireDirection;
-                    Destroy(newProjectile, 5);
-                }
-            }
+            GameObject newProjectile = (GameObject)Instantiate(projectile, transform.position, transform.rotation);
+            newProjectile.GetComponent<Rigidbody>().velocity = FireDirection;
+            Destroy(newProjectile, 5);
         } else
         {
             reloadTimer += Time.deltaTime;
         }
-    }
-
-    void OnTriggerEnter(Collider coll)
-    {
-        if (isPlayer(coll.gameObject))
-        {
-            playerList.Add(coll.gameObject);
-        }
-    }
-
-    private void OnTriggerExit(Collider coll)
-    {
-        playerList.Remove(coll.gameObject);
-    }
-
-    bool isPlayer(GameObject obj)
-    {
-        return obj.CompareTag(targetTag);
     }
 }
 
