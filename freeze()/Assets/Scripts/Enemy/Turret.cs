@@ -30,6 +30,7 @@ public class Turret : MonoBehaviour
         Vector3 obj_position = obj.transform.position;
         obj_position.z = transform.position.z;
         transform.LookAt(obj_position);
+        transform.Rotate(180, 90, 0);
         if (reloadTimer > timeToReload && inRadius())
         {
             reloadTimer = 0;
