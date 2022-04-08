@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingBasic : MonoBehaviour
+public class MovingBasic : Enemy
 {
 
     #region positions
@@ -38,7 +38,7 @@ public class MovingBasic : MonoBehaviour
         }
     }
 
-    public void Attack(GameObject other) {
+    public override void Attack(GameObject other) {
         Player player = other.GetComponent(typeof(Player)) as Player;
         player.TakeDamage(damage);
     }
