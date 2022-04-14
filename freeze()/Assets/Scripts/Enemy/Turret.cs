@@ -14,14 +14,14 @@ public class Turret : MonoBehaviour
 
     #region hackable_variables
     [SerializeField]
-    [Tooltip("The angle at which this enemy shoots.")]
-    public GameObject obj;
+    [Tooltip("The object at which this enemy shoots.")]
+    private GameObject obj;
     #endregion
 
     private void Awake()
     {
         reloadTimer = timeToReload;
-        obj = GameObject.Find("Player");
+        obj = GameObject.Find("U");
     }
 
     // Update is called once per frame
@@ -29,8 +29,16 @@ public class Turret : MonoBehaviour
     {
         Vector3 obj_position = obj.transform.position;
         obj_position.z = transform.position.z;
+        // transform.rotation = Quaternion.LookRotation(transform.position - obj.transform.position);
         transform.LookAt(obj_position);
-        transform.Rotate(180, 90, 0);
+        var rotationVector = transform.rotation.eulerAngles;
+        rotationVector.y = -90;
+        if (90 < rotationVector.x && rotationVector.x < 270) {
+            rotationVector.x = 180 - rotationVector.x;
+        }
+        transform.rotation = Quaternion.Euler(rotationVector);
+
+        // Reloading
         if (reloadTimer > timeToReload && inRadius())
         {
             reloadTimer = 0;
@@ -39,9 +47,11 @@ public class Turret : MonoBehaviour
             Vector2 FireDirection = new Vector2(x, y);
             FireDirection = FireDirection.normalized * fireSpeed;
 
-            GameObject newProjectile = (GameObject)Instantiate(projectile, transform.position, transform.rotation);
-            newProjectile.GetComponent<Rigidbody>().velocity = FireDirection;
-            Destroy(newProjectile, 5);
+            GameObject bullet = (GameObject)Instantiate(projectile, transform.position, transform.rotation);
+            var bullet_pos = bullet.transform.position;
+            bullet.transform.position = new Vector3(bullet_pos.x, bullet_pos.y, 0);
+            bullet.GetComponent<Rigidbody>().velocity = FireDirection;
+            Destroy(bullet, 5);
         } else
         {
             reloadTimer += Time.deltaTime;
@@ -50,6 +60,10 @@ public class Turret : MonoBehaviour
 
     bool inRadius() {
         return Vector3.Distance(obj.transform.position, transform.position) < radius;
+    }
+
+    public void ChangeTarget(GameObject target) {
+        obj = target;
     }
 }
 

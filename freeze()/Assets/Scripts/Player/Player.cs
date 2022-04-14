@@ -39,6 +39,12 @@ public class Player : MonoBehaviour
         } else {
             rotatePlayer();
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && onGround)
+        {
+            playerRB.velocity = new Vector2(playerRB.velocity.x, 0);
+            playerRB.AddForce(new Vector2(0, jumpForce));
+        }
     }
 
     void movePlayer()
@@ -54,11 +60,6 @@ public class Player : MonoBehaviour
         if (playerRB.velocity.x < -maxSpeed)
         {
             playerRB.velocity = new Vector2(-maxSpeed, playerRB.velocity.y);
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && onGround)
-        {
-            playerRB.velocity = new Vector2(playerRB.velocity.x, 0);
-            playerRB.AddForce(new Vector2(0, jumpForce));
         }
     }
 
