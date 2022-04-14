@@ -770,6 +770,7 @@ GameObject:
   - component: {fileID: 7393382883544894369}
   - component: {fileID: 7428152644944775979}
   - component: {fileID: 2939610764412946510}
+  - component: {fileID: 122465123}
   m_Layer: 0
   m_Name: Cube.002_Material_0.064
   m_TagString: Untagged
@@ -858,6 +859,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curTouch: {fileID: 0}
+--- !u!65 &122465123
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965567782638558938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016661176, y: 0.006512294, z: 0.010506729}
+  m_Center: {x: 0.0006259323, y: -0.0005917517, z: -0.03153252}
 --- !u!1 &1172888088143353596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,8 +2037,8 @@ Rigidbody:
   m_GameObject: {fileID: 2597153923608488766}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 3
+  m_AngularDrag: 20
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2056,9 +2070,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0e18163c9d543709b4d7692b649259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1000
-  maxSpeed: 5000
-  jumpForce: 100
+  moveSpeed: 3000
+  maxSpeed: 7000
+  jumpForce: 500
   onGround: 0
   maxHealth: 100
 --- !u!1 &2599600443427981180
