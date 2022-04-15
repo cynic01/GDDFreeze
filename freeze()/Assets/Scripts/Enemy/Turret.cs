@@ -29,12 +29,11 @@ public class Turret : MonoBehaviour
     {
         Vector3 obj_position = obj.transform.position;
         obj_position.z = transform.position.z;
-        // transform.rotation = Quaternion.LookRotation(transform.position - obj.transform.position);
         transform.LookAt(obj_position);
         var rotationVector = transform.rotation.eulerAngles;
-        rotationVector.y = -90;
-        if (90 < rotationVector.x && rotationVector.x < 270) {
-            rotationVector.x = 180 - rotationVector.x;
+        if (rotationVector.y - 90 < 1e-2) {
+            rotationVector.y = 270;
+            rotationVector.x = -rotationVector.x + 180;
         }
         transform.rotation = Quaternion.Euler(rotationVector);
 
