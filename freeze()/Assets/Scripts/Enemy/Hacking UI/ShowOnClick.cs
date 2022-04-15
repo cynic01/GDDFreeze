@@ -20,7 +20,7 @@ public class ShowOnClick : MonoBehaviour
         if (!enemyUI.enabled) {
             StartCoroutine(camScript.ShiftCamera(offset));
             enemyUI.enabled = true;
-            // Time.timeScale = 0.1f;
+            Time.timeScale = 0.1f;
         }
     }
 }

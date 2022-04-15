@@ -18,7 +18,7 @@ public class CloseCanvasButton : MonoBehaviour
     public void HideCanvas() {
         if (enemyUI.enabled) {
             enemyUI.enabled = false;
-            // Time.timeScale = 1.0f;
+            Time.timeScale = 1.0f;
             StartCoroutine(camScript.ShiftCamera(offset));
         }
     }
