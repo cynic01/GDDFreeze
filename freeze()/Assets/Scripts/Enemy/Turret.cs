@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : Enemy
 {
 
     public GameObject projectile;
@@ -21,12 +21,14 @@ public class Turret : MonoBehaviour
     private void Awake()
     {
         reloadTimer = timeToReload;
-        obj = GameObject.Find("U");
+        obj = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        obj = GameObject.FindGameObjectWithTag(detectTag);
         Vector3 obj_position = obj.transform.position;
         obj_position.z = transform.position.z;
         transform.LookAt(obj_position);
@@ -62,6 +64,11 @@ public class Turret : MonoBehaviour
 
     public void ChangeTarget(GameObject target) {
         obj = target;
+    }
+
+    public override void Attack(GameObject other)
+    {
+        
     }
 }
 
