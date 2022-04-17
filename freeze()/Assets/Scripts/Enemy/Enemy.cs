@@ -21,7 +21,7 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The GameObject tag this enemy chases.")]
-    protected string chaseTag = "Player";
+    protected string attackTag = "Player";
     #endregion
 
     #region abstract_functions
@@ -33,8 +33,8 @@ public abstract class Enemy : MonoBehaviour
         detectTag = newTag;
     }
 
-    public virtual void ChangeChaseTag(string newTag) {
-        chaseTag = newTag;
+    public virtual void ChangeAttackTag(string newTag) {
+        attackTag = newTag;
     }
     #endregion
 

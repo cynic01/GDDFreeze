@@ -19,7 +19,7 @@ public class BasicEnemy : Enemy {
 	}
 
 	public override void Attack(GameObject other) {
-		if (on && other.tag == chaseTag) {
+		if (on && other.tag == attackTag) {
 			Vector3 direction = (other.transform.position - transform.position).normalized;
 			transform.position += direction * movespeed * Time.deltaTime;
 		}
@@ -28,9 +28,5 @@ public class BasicEnemy : Enemy {
     void OnTriggerStay(Collider collision)
     {
 		Attack(collision.gameObject);
-		// if (on && collision.gameObject.tag == chaseTag) {
-		// 	var direction = (collision.gameObject.transform.position - transform.position).normalized;
-		// 	transform.position += direction * movespeed * Time.deltaTime;
-		// }
     }
 }

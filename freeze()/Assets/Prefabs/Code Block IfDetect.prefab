@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 3584959099757908686}
   - component: {fileID: 3584959099757908687}
   m_Layer: 5
-  m_Name: Code Block
+  m_Name: Code Block IfDetect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 3584959099799762171}
   - component: {fileID: 3584959099799762168}
   - component: {fileID: 3584959099799762169}
+  - component: {fileID: 4410222825390889676}
   m_Layer: 5
   m_Name: Dropdown Menu
   m_TagString: Untagged
@@ -540,12 +541,24 @@ MonoBehaviour:
     m_Options:
     - m_Text: Player
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: Enemy
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
   m_AlphaFadeSpeed: 0.15
+--- !u!114 &4410222825390889676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584959099799762151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2cd35d79b0752643aab76e1cd1f1c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3584959099816662711
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,8 +26,8 @@ public class DropdownMenuScript : MonoBehaviour, ISelectHandler
             case "If Detect":
                 enemyScript.ChangeDetectionTag(dropdown.captionText.text);
                 break;
-            case "Chase":
-                enemyScript.ChangeChaseTag(dropdown.captionText.text);
+            case "Attack":
+                enemyScript.ChangeAttackTag(dropdown.captionText.text);
                 break;
             default:
                 Debug.Log("Error in Dropdown Menu Script");

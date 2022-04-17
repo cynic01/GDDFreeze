@@ -51,8 +51,7 @@ public class Turret : MonoBehaviour
             bullet.transform.position = new Vector3(bullet_pos.x, bullet_pos.y, 0);
             bullet.GetComponent<Rigidbody>().velocity = FireDirection;
             Destroy(bullet, 5);
-        } else
-        {
+        } else {
             reloadTimer += Time.deltaTime;
         }
     }
