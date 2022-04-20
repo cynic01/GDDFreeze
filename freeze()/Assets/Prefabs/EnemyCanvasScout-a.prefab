@@ -114,11 +114,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1541396342312312744, guid: 42c8ad69d9329724080661359e0615a1, type: 3}
       propertyPath: m_text
-      value: Scout Enemy Logic
+      value: Scout-a Logic
       objectReference: {fileID: 0}
     - target: {fileID: 1541396342885018847, guid: 42c8ad69d9329724080661359e0615a1, type: 3}
       propertyPath: m_Name
-      value: EnemyCanvasScout
+      value: EnemyCanvasScout-a
       objectReference: {fileID: 0}
     - target: {fileID: 1541396342885018851, guid: 42c8ad69d9329724080661359e0615a1, type: 3}
       propertyPath: m_Pivot.x

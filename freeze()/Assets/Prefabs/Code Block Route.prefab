@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 3750668230715531095}
   - component: {fileID: 6356120179041931154}
   m_Layer: 5
-  m_Name: Dropdown Menu (1)
+  m_Name: B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2131,7 +2131,7 @@ GameObject:
   - component: {fileID: 397475886318362710}
   - component: {fileID: 5878386794592830846}
   m_Layer: 5
-  m_Name: Dropdown Menu (2)
+  m_Name: C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2632,6 +2632,10 @@ PrefabInstance:
     - target: {fileID: 3584959099799762150, guid: 4862cd5b28816a3478dabb7737cdfe09, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584959099799762151, guid: 4862cd5b28816a3478dabb7737cdfe09, type: 3}
+      propertyPath: m_Name
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 3584959099799762169, guid: 4862cd5b28816a3478dabb7737cdfe09, type: 3}
       propertyPath: m_Options.m_Options.Array.size

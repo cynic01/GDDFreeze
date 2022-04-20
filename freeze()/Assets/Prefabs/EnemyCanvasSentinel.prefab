@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1541396342312312744, guid: 42c8ad69d9329724080661359e0615a1, type: 3}
+      propertyPath: m_text
+      value: Sentinel Logic
+      objectReference: {fileID: 0}
     - target: {fileID: 1541396342885018847, guid: 42c8ad69d9329724080661359e0615a1, type: 3}
       propertyPath: m_Name
-      value: EnemyCanvasBasic
+      value: EnemyCanvasSentinel
       objectReference: {fileID: 0}
     - target: {fileID: 1541396342885018851, guid: 42c8ad69d9329724080661359e0615a1, type: 3}
       propertyPath: m_Pivot.x
@@ -94,6 +98,10 @@ PrefabInstance:
     - target: {fileID: 1541396342885018851, guid: 42c8ad69d9329724080661359e0615a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541396344267111556, guid: 42c8ad69d9329724080661359e0615a1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42c8ad69d9329724080661359e0615a1, type: 3}

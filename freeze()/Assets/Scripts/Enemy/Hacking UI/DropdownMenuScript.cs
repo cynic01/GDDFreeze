@@ -12,8 +12,7 @@ public class DropdownMenuScript : MonoBehaviour, ISelectHandler
     private Enemy enemyScript;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         dropdown = gameObject.GetComponent<TMP_Dropdown>();
         title = transform.parent.gameObject.GetComponentInChildren<TextMeshProUGUI>();
         Debug.Log(title.text);
@@ -28,6 +27,9 @@ public class DropdownMenuScript : MonoBehaviour, ISelectHandler
                 break;
             case "Attack":
                 enemyScript.ChangeAttackTag(dropdown.captionText.text);
+                break;
+            case "Route":
+                // enemyScript.ChangeRoute(name, dropdown.captionText.text);
                 break;
             default:
                 Debug.Log("Error in Dropdown Menu Script");
