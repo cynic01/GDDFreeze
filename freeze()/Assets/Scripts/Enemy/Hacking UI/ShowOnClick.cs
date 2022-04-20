@@ -11,7 +11,7 @@ public class ShowOnClick : MonoBehaviour
     
     // Start is called before the first frame update
     void Start() {
-        enemyUI = gameObject.transform.Find("EnemyCanvas").GetComponent<Canvas>();
+        enemyUI = gameObject.transform.Find("EnemyCanvas" + name).GetComponent<Canvas>();
         enemyUI.enabled = false;
         camScript = Camera.main.GetComponent<CameraController>();
     }

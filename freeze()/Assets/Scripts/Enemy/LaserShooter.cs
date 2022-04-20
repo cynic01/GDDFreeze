@@ -77,7 +77,7 @@ public class LaserShooter : Enemy
 
     void OnTriggerStay(Collider collision)
     {
-        if (on && collision.gameObject.tag == chaseTag) {
+        if (on && collision.gameObject.tag == attackTag) {
             Chase(collision.gameObject);
         }
     }
