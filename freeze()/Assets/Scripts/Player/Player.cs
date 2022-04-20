@@ -89,7 +89,9 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
+        GameObject gm = GameObject.FindWithTag("GameController");
+        gm.GetComponent<GameManager>().OnDie();
     }
     #endregion
 }
