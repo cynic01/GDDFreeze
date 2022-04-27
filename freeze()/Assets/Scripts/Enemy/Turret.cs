@@ -22,13 +22,12 @@ public class Turret : Enemy
     {
         reloadTimer = timeToReload;
         obj = GameObject.FindGameObjectWithTag("Player");
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        obj = GameObject.FindGameObjectWithTag(detectTag);
+        obj = GameObject.FindGameObjectWithTag(attackTag);
         Vector3 obj_position = obj.transform.position;
         obj_position.z = transform.position.z;
         transform.LookAt(obj_position);

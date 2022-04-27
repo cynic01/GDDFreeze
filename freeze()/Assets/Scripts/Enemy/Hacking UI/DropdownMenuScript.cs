@@ -22,9 +22,6 @@ public class DropdownMenuScript : MonoBehaviour, ISelectHandler
     public void OnSelect(BaseEventData eventData) {
         Debug.Log(title.text);
         switch(title.text) {
-            case "If Detect":
-                enemyScript.ChangeDetectionTag(dropdown.captionText.text);
-                break;
             case "Attack":
                 enemyScript.ChangeAttackTag(dropdown.captionText.text);
                 break;

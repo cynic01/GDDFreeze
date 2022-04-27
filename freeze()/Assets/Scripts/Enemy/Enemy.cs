@@ -16,10 +16,6 @@ public abstract class Enemy : MonoBehaviour
 	public bool on = true;
 
     [SerializeField]
-    [Tooltip("This enemy will move when detecting this tag.")]
-    protected string detectTag = "Player";
-
-    [SerializeField]
     [Tooltip("The GameObject tag this enemy chases.")]
     protected string attackTag = "Player";
     #endregion
@@ -29,10 +25,6 @@ public abstract class Enemy : MonoBehaviour
     #endregion
 
     #region hacking_functions
-    public virtual void ChangeDetectionTag(string newTag) {
-        detectTag = newTag;
-    }
-
     public virtual void ChangeAttackTag(string newTag) {
         attackTag = newTag;
     }
