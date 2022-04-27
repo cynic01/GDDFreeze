@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -90,8 +91,8 @@ public class Player : MonoBehaviour
     public void Die()
     {
         Destroy(this.gameObject);
-        GameObject gm = GameObject.FindWithTag("GameController");
-        gm.GetComponent<GameManager>().OnDie();
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
     #endregion
 }
