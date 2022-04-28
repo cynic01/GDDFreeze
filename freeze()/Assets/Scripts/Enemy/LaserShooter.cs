@@ -22,6 +22,8 @@ public class LaserShooter : Enemy
     private float reloadTimer;
     private float shootingTimer;
     private float timeToShoot = 2;
+
+    private bool laserOn;
     #endregion
 
 	// Use this for initialization
@@ -32,25 +34,39 @@ public class LaserShooter : Enemy
 
         reloadTimer = 0;
         shootingTimer = 0;
+
+        laserOn = false;
 	}
 
     void Update() {
-        Debug.Log("SHOOT: " + shootingTimer);
+        // Debug.Log("SHOOT: " + shootingTimer);
         // Debug.Log("RELOAD " + reloadTimer);
+
+        if (reloadTimer > timeToReload) {
+            if (reloadTimer - timeToReload < epsilonTime) {
+                shootingTimer = 0;
+            }
+            Attack(null);
+        }
+        reloadTimer += Time.deltaTime;
     }
 
 	public override void Attack(GameObject other) 
     {
         if (shootingTimer > timeToShoot) {
+
+            laserOn = false;
             
             reloadTimer = 0;
 
         } else {
+            if (!laserOn) {
+                GameObject laser_obj = (GameObject)Instantiate(laser);
+                laser_obj.transform.position += new Vector3(6f, -2f, 5);
+                Destroy(laser_obj, timeToShoot);
 
-            GameObject laser_obj = (GameObject)Instantiate(laser, transform.position, transform.rotation);
-            var laser_pos = laser_obj.transform.position;
-            laser_obj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -1000);
-            Destroy(laser_obj, 0.1f);
+                laserOn = true;
+            }
 
             shootingTimer += Time.deltaTime;
         }
@@ -58,27 +74,27 @@ public class LaserShooter : Enemy
 
     void Chase(GameObject other) 
     {
-        Vector3 player_pos = other.transform.position;
-        Vector3 player_xy = new Vector3(player_pos.x, player_pos.y, 0);
-        Vector3 this_xy = new Vector3(transform.position.x, transform.position.y, 0);
-        if (Vector3.Distance(player_xy, this_xy) > epsilon) {
-            Vector3 direction = (player_xy - this_xy).normalized;
-		    transform.position += direction * movespeed * Time.deltaTime;
-        }
+        // Vector3 player_pos = other.transform.position;
+        // Vector3 player_xy = new Vector3(player_pos.x, player_pos.y, 0);
+        // Vector3 this_xy = new Vector3(transform.position.x, transform.position.y, 0);
+        // if (Vector3.Distance(player_xy, this_xy) > epsilon) {
+        //     Vector3 direction = (player_xy - this_xy).normalized;
+		//     transform.position += direction * movespeed * Time.deltaTime;
+        // }
 
-        if (reloadTimer > timeToReload) {
-            if (reloadTimer - timeToReload < epsilonTime) {
-                shootingTimer = 0;
-            }
-            Attack(other);
-        }
-        reloadTimer += Time.deltaTime;
+        // if (reloadTimer > timeToReload) {
+        //     if (reloadTimer - timeToReload < epsilonTime) {
+        //         shootingTimer = 0;
+        //     }
+        //     Attack(other);
+        // }
+        // reloadTimer += Time.deltaTime;
     }
 
-    void OnTriggerStay(Collider collision)
-    {
-        if (on && collision.gameObject.tag == attackTag) {
-            Chase(collision.gameObject);
-        }
-    }
+    // void OnTriggerStay(Collider collision)
+    // {
+    //     if (on && collision.gameObject.tag == attackTag) {
+    //         Chase(collision.gameObject);
+    //     }
+    // }
 }
