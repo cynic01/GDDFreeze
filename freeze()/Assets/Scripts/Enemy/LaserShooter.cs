@@ -61,10 +61,10 @@ public class LaserShooter : Enemy
 
         } else {
             if (!laserOn) {
-                GameObject laser_obj = (GameObject)Instantiate(laser);
-                laser_obj.transform.position += new Vector3(6f, -2f, 5);
+                var pos = new Vector3(transform.position.x, transform.position.y, 0);
+                GameObject laser_obj = (GameObject)Instantiate(laser, pos, transform.rotation, transform);
+                // laser_obj.transform.position += new Vector3(6, -2, 5);
                 Destroy(laser_obj, timeToShoot);
-
                 laserOn = true;
             }
 

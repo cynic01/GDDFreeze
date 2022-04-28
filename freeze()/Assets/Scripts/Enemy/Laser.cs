@@ -15,8 +15,8 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lr.SetPosition(0, transform.position);
-        lr.SetPosition(1, transform.position + new Vector3(0, 0, -30));
+        lr.SetPosition(0, transform.position + new Vector3(0, -1.2f, 5.5f));
+        lr.SetPosition(1, transform.position + new Vector3(0, -1.2f, -30));
     }
 
     void OnTriggerEnter(Collider coll) {
