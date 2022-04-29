@@ -12,6 +12,12 @@ public class MainMenuController : MonoBehaviour
     }
     #endregion
 
+    void Update() {
+        if (Input.anyKey) {
+            PlayArena();
+        }
+    }
+
     #region Play Button Methods
     public void PlayArena() {
         SceneManager.LoadScene("WithModels");
