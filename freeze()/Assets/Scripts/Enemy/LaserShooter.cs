@@ -16,12 +16,12 @@ public class LaserShooter : Enemy
     public GameObject laser;
 
     public float timeToReload;
+    public float timeToShoot;
 
     private float epsilon = 0.2f;
     private float epsilonTime = 0.05f;
     private float reloadTimer;
     private float shootingTimer;
-    private float timeToShoot = 2;
 
     private bool laserOn;
     #endregion
