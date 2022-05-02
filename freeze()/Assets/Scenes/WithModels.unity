@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -448,7 +448,7 @@ MonoBehaviour:
   movespeed: 10
   laser: {fileID: 5081240607389991280, guid: af197ef458fd24e6280c63cd9687c757, type: 3}
   timeToReload: 3
-  timeToShoot: 0
+  timeToShoot: 2
 --- !u!54 &988248816
 Rigidbody:
   m_ObjectHideFlags: 0
