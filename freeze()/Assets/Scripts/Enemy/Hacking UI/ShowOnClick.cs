@@ -20,6 +20,8 @@ public class ShowOnClick : MonoBehaviour
         if (!enemyUI.enabled) {
             StartCoroutine(camScript.ShiftCamera(offset));
             enemyUI.enabled = true;
+            AudioSource m_audiosource = Camera.main.GetComponent<AudioSource>();
+            m_audiosource.volume /= 2;
             Time.timeScale = 0.1f;
         }
     }

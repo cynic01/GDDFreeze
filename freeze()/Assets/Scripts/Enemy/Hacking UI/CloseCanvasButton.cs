@@ -18,6 +18,8 @@ public class CloseCanvasButton : MonoBehaviour
     public void HideCanvas() {
         if (enemyUI.enabled) {
             enemyUI.enabled = false;
+            AudioSource m_audiosource = Camera.main.GetComponent<AudioSource>();
+            m_audiosource.volume *= 2;
             Time.timeScale = 1.0f;
             StartCoroutine(camScript.ShiftCamera(offset));
         }
